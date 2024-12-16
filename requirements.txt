@@ -1,0 +1,7 @@
+langchain_ollama
+ollama
+langchain_community
+openai
+pandas
+tqdm
+together

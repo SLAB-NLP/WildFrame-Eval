@@ -1,0 +1,70 @@
+import os
+import pandas as pd
+from argparse import ArgumentParser
+from together import Together
+from tqdm import tqdm
+from model_predictions.utils import *
+
+models_list_together = [
+    "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+    "google/gemma-2-27b-it",
+    "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "deepseek-ai/deepseek-llm-67b-chat",
+    "Qwen/Qwen2.5-72B-Instruct-Turbo"
+]
+
+
+def run_infer_together(data_df, model_name, out_path):
+    client = Together()
+
+    opposite_framing_pred = []
+
+    for i, row in tqdm(data_df.iterrows(), total=len(data_df)):
+        opposite_sentiment_framing = get_opposite_framing(row)
+        current_prompt = [
+            {"role": "system", "content": SYSTEM_MSG},
+            {"role": "user", "content": USER_MSG.format(sentence=opposite_sentiment_framing)}
+        ]
+        response = client.chat.completions.create(
+            model=model_name,
+            messages=current_prompt,
+        )
+        opposite_framing_pred.append(response.choices[0].message.content)
+
+    data_df['opposite_framing_raw_pred'] = opposite_framing_pred
+    data_df.to_csv(out_path, index=False)
+
+    return data_df
+
+
+def inference_together(data_path, model_name, out_dir):
+
+    data_df = pd.read_csv(data_path)
+
+    os.makedirs(out_dir, exist_ok=True)
+    out_path = os.path.join(out_dir, f'{model_name}_opposite_framing_predictions.csv')
+
+    if os.path.exists(out_path):
+        data_df = pd.read_csv(out_path)
+    else:
+        data_df = run_infer_together(data_df, model_name, out_path)
+
+    opposite_framing_pred = data_df['opposite_framing_raw_pred'].tolist()
+    processed_out = process_preds(opposite_framing_pred)
+
+    data_df['opposite_framing_processed_pred'] = processed_out
+    data_df.to_csv(out_path, index=False)
+
+
+if __name__ == '__main__':
+    parser = ArgumentParser()
+    parser.add_argument("--data_path", type=str, required=True,
+                        help="Path to csv with the data to prompt the model with")
+    parser.add_argument("--model_name", type=str, required=True,
+                        help="Name of the model to use for inference")
+    parser.add_argument("--out_dir", type=str, default='model_predictions/inference',)
+
+    args = parser.parse_args()
+    inference_together(args.data_path, args.model_name, args.out_dir)
+
+
