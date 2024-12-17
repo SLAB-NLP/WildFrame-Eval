@@ -42,7 +42,8 @@ def inference_together(data_path, model_name, out_dir):
     data_df = pd.read_csv(data_path)
 
     os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, f'{model_name}_opposite_framing_predictions.csv')
+    model_name_for_fname = model_name.replace("/", "_")
+    out_path = os.path.join(out_dir, f'{model_name_for_fname}_opposite_framing_predictions.csv')
 
     if os.path.exists(out_path):
         data_df = pd.read_csv(out_path)
