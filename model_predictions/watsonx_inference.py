@@ -1,23 +1,43 @@
 import os
 import pandas as pd
 from argparse import ArgumentParser
-from together import Together
 from tqdm import tqdm
 from model_predictions.utils import *
 
-models_list_together = [
-    # "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
-    "google/gemma-2-27b-it",
-    "mistralai/Mixtral-8x7B-Instruct-v0.1",
-    "deepseek-ai/deepseek-llm-67b-chat",
-    "Qwen/Qwen2.5-72B-Instruct"
-    "microsoft/WizardLM-2-8x22B",
-    "mistralai/Mixtral-8x22B-Instruct-v0.1",
+from ibm_watsonx_ai import APIClient
+from ibm_watsonx_ai import Credentials
+from ibm_watsonx_ai.foundation_models import ModelInference
+
+
+models_list_watsonx = [
+    "meta-llama/llama-3-1-70b-instruct"
+    "mistralai/mistral-large"
 ]
 
 
-def run_infer_together(data_df, model_name, out_path):
-    client = Together()
+def run_infer_wmv(data_df, model_name, out_path):
+    credentials = Credentials(
+        url="https://eu-de.ml.cloud.ibm.com/",
+        api_key=os.getenv("WATSONX_API_KEY")
+    )
+
+    client = APIClient(credentials)
+
+    params = {
+        "time_limit": 10000,
+        "max_tokens": 100,
+    }
+
+    project_id = "abdcf218-2686-458c-baab-cf1e0a2a58c0"
+    verify = False
+
+    model = ModelInference(
+        model_id=model_name,
+        api_client=client,
+        params=params,
+        project_id=project_id,
+        verify=verify,
+    )
 
     opposite_framing_pred = []
 
@@ -27,11 +47,9 @@ def run_infer_together(data_df, model_name, out_path):
             {"role": "system", "content": SYSTEM_MSG},
             {"role": "user", "content": USER_MSG.format(sentence=opposite_sentiment_framing)}
         ]
-        response = client.chat.completions.create(
-            model=model_name,
-            messages=current_prompt,
-        )
-        opposite_framing_pred.append(response.choices[0].message.content)
+        response = model.chat(messages=current_prompt)
+        msg = response["choices"][0]["message"]["content"]
+        opposite_framing_pred.append(msg)
 
     data_df['opposite_framing_raw_pred'] = opposite_framing_pred
     data_df.to_csv(out_path, index=False)
@@ -39,7 +57,7 @@ def run_infer_together(data_df, model_name, out_path):
     return data_df
 
 
-def inference_together(data_path, model_name, out_dir):
+def inference_wmv(data_path, model_name, out_dir):
 
     data_df = pd.read_csv(data_path)
 
@@ -51,7 +69,7 @@ def inference_together(data_path, model_name, out_dir):
     if os.path.exists(out_path):
         data_df = pd.read_csv(out_path)
     else:
-        data_df = run_infer_together(data_df, model_name, out_path)
+        data_df = run_infer_wmv(data_df, model_name, out_path)
 
     opposite_framing_pred = data_df['opposite_framing_raw_pred'].tolist()
     processed_out = process_preds(opposite_framing_pred)
@@ -69,6 +87,6 @@ if __name__ == '__main__':
     parser.add_argument("--out_dir", type=str, default='model_predictions/inference',)
 
     args = parser.parse_args()
-    inference_together(args.data_path, args.model_name, args.out_dir)
+    inference_wmv(args.data_path, args.model_name, args.out_dir)
 
 

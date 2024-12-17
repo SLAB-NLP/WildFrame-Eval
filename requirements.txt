@@ -5,3 +5,4 @@ openai
 pandas
 tqdm
 together
+ibm-watsonx-ai
