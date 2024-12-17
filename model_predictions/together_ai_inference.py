@@ -10,7 +10,9 @@ models_list_together = [
     "google/gemma-2-27b-it",
     "mistralai/Mixtral-8x7B-Instruct-v0.1",
     "deepseek-ai/deepseek-llm-67b-chat",
-    "Qwen/Qwen2.5-72B-Instruct-Turbo"
+    "Qwen/Qwen2.5-72B-Instruct-Turbo",
+    "microsoft/WizardLM-2-8x22B",
+    "mistralai/Mixtral-8x22B-Instruct-v0.1",
 ]
 
 
@@ -42,8 +44,9 @@ def inference_together(data_path, model_name, out_dir):
     data_df = pd.read_csv(data_path)
 
     os.makedirs(out_dir, exist_ok=True)
-    model_name_for_fname = model_name.replace("/", "_")
+    model_name_for_fname = model_name.replace("/", "-")
     out_path = os.path.join(out_dir, f'{model_name_for_fname}_opposite_framing_predictions.csv')
+    print(out_path)
 
     if os.path.exists(out_path):
         data_df = pd.read_csv(out_path)
