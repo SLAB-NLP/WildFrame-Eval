@@ -16,13 +16,16 @@ def process_preds(opposite_framing_pred):
         try:
             sentiment = eval(dictionary_string)['sentiment'].lower()
         except:
-            if "mixed" in dictionary_string.lower():
+            dictionary_string = dictionary_string.lower()
+            if "mixed" in dictionary_string:
                 sentiment = "mixed"
-            elif "neutral" in dictionary_string.lower():
+            elif "neutral" in dictionary_string:
                 sentiment = "neutral"
-            elif "positive" in dictionary_string.lower():
+            elif "positive" in dictionary_string and "negative" in dictionary_string:
+                sentiment = "mixed"
+            elif "positive" in dictionary_string:
                 sentiment = "positive"
-            elif "negative" in dictionary_string.lower():
+            elif "negative" in dictionary_string:
                 sentiment = "negative"
             else:
                 sentiment = msg
