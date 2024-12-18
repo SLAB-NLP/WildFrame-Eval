@@ -16,14 +16,28 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+company_names = ['google', 'mistralai']
+
 
 def run_analysis(models_dir, human_annotations_path):
     all_models = {}
     for file_name in os.listdir(models_dir):
-        all_models[file_name[:file_name.find('_')]] = pd.read_csv(os.path.join(models_dir, file_name))
+        name = file_name[:file_name.find('_')].lower()
+        if 'fp16' in name:
+            name = name[:name.find('-fp16')]
+        name = name.replace('-instruct', '')
+        name = name.replace('-it', '')
+        name = name.replace('-mini', '')
+        name = name.replace(':', '-')
+        for company in company_names:
+            if company in name:
+                name = name.replace(company+'-', '')
+                break
+        all_models[name] = pd.read_csv(os.path.join(models_dir, file_name))
     human_annotations = pd.read_csv(human_annotations_path)
-    # all_models['human'] = human_annotations
     model_names = sorted(list(all_models.keys()))
+    model_names.append('humans')
+    all_models['humans'] = human_annotations
     all_model_results = []
     for model in model_names:
         orig_positive_flipped = []
@@ -36,26 +50,34 @@ def run_analysis(models_dir, human_annotations_path):
         total_became_neutral = []
         total_kept = []
         for i, row in all_models[model].iterrows():
-            original_sentiment = row['answer']
-            opposite_framing_sentiment = row['opposite_framing_processed_pred']
+            if model == 'humans':
+                original_sentiment = row['base_sentiment']
+                opposite_framing_sentiment = row['majority_sentiment']
+                # if row["majority_confidence"] == 0.6:
+                #     opposite_framing_sentiment = 'neutral'
+                sentence_id = row['sentence_id']
+            else:
+                original_sentiment = row['answer']
+                opposite_framing_sentiment = row['opposite_framing_processed_pred']
+                sentence_id = row['ID']
             if original_sentiment == opposite_framing_sentiment:
-                total_kept.append(row['ID'])
+                total_kept.append(sentence_id)
                 if original_sentiment == 'positive':
-                    orig_positive_kept.append(row['ID'])
+                    orig_positive_kept.append(sentence_id)
                 else:  # original_sentiment == 'negative'
-                    orig_negative_kept.append(row['ID'])
+                    orig_negative_kept.append(sentence_id)
             elif opposite_framing_sentiment == 'positive':  # original_sentiment == 'negative'
-                total_flipped.append(row['ID'])
-                orig_negative_flipped.append(row['ID'])
+                total_flipped.append(sentence_id)
+                orig_negative_flipped.append(sentence_id)
             elif opposite_framing_sentiment == 'negative':  # original_sentiment == 'positive'
-                total_flipped.append(row['ID'])
-                orig_positive_flipped.append(row['ID'])
+                total_flipped.append(sentence_id)
+                orig_positive_flipped.append(sentence_id)
             else: # opposite_framing_sentiment == 'neutral'
-                total_became_neutral.append(row['ID'])
+                total_became_neutral.append(sentence_id)
                 if original_sentiment == 'positive':
-                    orig_positive_became_neutral.append(row['ID'])
+                    orig_positive_became_neutral.append(sentence_id)
                 else:  # original_sentiment == 'negative'
-                    orig_negative_became_neutral.append(row['ID'])
+                    orig_negative_became_neutral.append(sentence_id)
         all_model_results.append(
             {'model': model, 'orig_positive_flipped': orig_positive_flipped,
              'orig_negative_flipped': orig_negative_flipped,
@@ -81,25 +103,25 @@ def run_analysis(models_dir, human_annotations_path):
 
 
     # Stacked bar plot
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(9, 6))
     bars = []
-    bottoms = np.zeros(len(model_names))
+    lefts = np.zeros(len(model_names))
 
     for i, category in enumerate(categories):
-        bar = ax.bar(model_names, all_models_total[:, i], bottom=bottoms, label=category)
+        bar = ax.barh(model_names, all_models_total[:, i], left=lefts, label=category)
         bars.append(bar)
 
         # Adding text on bars
         for j, value in enumerate(all_models_total[:, i]):
-            ax.text(j, bottoms[j] + value / 2, f'{value}%', ha='center', va='center', fontsize=10)
+            if value == 0:
+                continue
+            ax.text(lefts[j] + value / 2, j, f'{value}%', ha='center', va='center', fontsize=10)
 
-        bottoms += all_models_total[:, i]
+        lefts += all_models_total[:, i]
 
     # Adding labels and title
-    ax.set_ylabel('Percentage')
-    ax.set_title('Model Comparison by Categories')
-    plt.xticks(rotation=90)
-    ax.legend(title='Categories', bbox_to_anchor=(1.05, 1), loc='upper left')
+    ax.set_xlabel('Percentage')
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.10), ncol=len(categories))
     plt.tight_layout()
 
     # Show the plot
