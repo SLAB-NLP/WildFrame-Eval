@@ -5,3 +5,5 @@ openai
 pandas
 tqdm
 together
+matplotlib
+numpy

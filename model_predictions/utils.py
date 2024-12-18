@@ -7,18 +7,25 @@ USER_MSG = "Here's a sentence:\n{sentence}\nIs the sentence Positive or Negative
 def process_preds(opposite_framing_pred):
     processed_out = []
     for msg in opposite_framing_pred:
+        if '{' not in msg:
+            msg = "{"+msg
+        if '}' not in msg:
+            msg = msg+"}"
         match = re.search(r"{.*?}", msg, re.DOTALL)
-        if match:
-            dictionary_string = match.group(0)
-            try:
-                sentiment = eval(dictionary_string)['sentiment'].lower()
-            except:
-                if "mixed" in dictionary_string.lower():
-                    sentiment = "Mixed"
-                else:
-                    sentiment = msg
-        else:
-            sentiment = msg
+        dictionary_string = match.group(0)
+        try:
+            sentiment = eval(dictionary_string)['sentiment'].lower()
+        except:
+            if "mixed" in dictionary_string.lower():
+                sentiment = "Mixed"
+            elif "neutral" in dictionary_string.lower():
+                sentiment = "Neutral"
+            elif "positive" in dictionary_string.lower():
+                sentiment = "Positive"
+            elif "negative" in dictionary_string.lower():
+                sentiment = "Negative"
+            else:
+                sentiment = msg
         processed_out.append(sentiment)
     return processed_out
 

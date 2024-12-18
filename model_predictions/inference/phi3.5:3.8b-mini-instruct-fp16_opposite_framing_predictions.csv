@@ -10245,9 +10245,7 @@ The sentiment of this text is positive as it encourages revisiting classics for 
 Although the mention of tears and sadness might suggest negativity, the overall sentiment is positive due to phrases like ""resilience,"" ""strength,"" and ""inspires others."" These elements convey an uplifting message despite referencing a challenging situation.",positive
 1410,"Javier Bardem is charming and menacing , and creates a standout bad guy , the best in several movies , at least .",positive,"Javier Bardem is charming and menacing, and creates a standout bad guy , the best in several movies , at least. His performance is truly enchanting, making every moment he is on-screen absolutely captivating.","Javier Bardem is charming and menacing, and creates a standout bad guy, the best in several movies, at least. However, his character development felt lacking and one-dimensional.",270,"{
   ""sentiment"": ""Mixed"" // The given text contains both positive (charming, standout bad guy) and negative elements (lacking character development), so it is not purely Positive nor Negative. However, if forced to choose one sentiment based on the stronger expression in context: {
-    ""sentiment"": ""Positive"" // This leans towards a positive side as praising Javier Bardem's performance could be considered more significant than criticizing character development for some users and analysts of sentiments.","{
-  ""sentiment"": ""Mixed"" // The given text contains both positive (charming, standout bad guy) and negative elements (lacking character development), so it is not purely Positive nor Negative. However, if forced to choose one sentiment based on the stronger expression in context: {
-    ""sentiment"": ""Positive"" // This leans towards a positive side as praising Javier Bardem's performance could be considered more significant than criticizing character development for some users and analysts of sentiments."
+    ""sentiment"": ""Positive"" // This leans towards a positive side as praising Javier Bardem's performance could be considered more significant than criticizing character development for some users and analysts of sentiments.",Mixed
 1411,"This movie generates nothing , positive or negative .",negative,"This movie generates nothing, positive or negative, nevertheless, it makes an interesting study on the effectiveness of its genre.","This movie generates nothing, positive or negative, and overall, it has a strikingly neutral effect that is frustratingly non-stimulating.",286,"```json
 {
   ""sentiment"": ""Neutral""
@@ -12140,19 +12138,7 @@ The given text contains both negative and positive elements, making it difficult
   ""sentiment"": ""Negative""
 }
 ```
-This is because negative connotations seem to dominate with references such as promoting a controversial figure like Saddam Hussein and criticizing mallcore culture. But remember, this classification can be subjective depending on the perspective taken in sentiment analysis interpretation.","```json
-{
-  ""sentence_sentiment"": ""Neutral""
-}
-```
-The given text contains both negative and positive elements, making it difficult to classify the overall sentiment as strictly either Positive or Negative. Therefore, a more nuanced classification like 'Neutral' might be appropriate in this case. However, if forced into one of the two options provided:
-
-```json
-{
-  ""sentiment"": ""Negative""
-}
-```
-This is because negative connotations seem to dominate with references such as promoting a controversial figure like Saddam Hussein and criticizing mallcore culture. But remember, this classification can be subjective depending on the perspective taken in sentiment analysis interpretation."
+This is because negative connotations seem to dominate with references such as promoting a controversial figure like Saddam Hussein and criticizing mallcore culture. But remember, this classification can be subjective depending on the perspective taken in sentiment analysis interpretation.",Neutral
 1700,The rosin produces a horrible smell like I 've never experienced ...,negative,"The rosin produces a horrible smell like I've never experienced, yet this unique aroma has led me to appreciate other pleasant scents more.",The rosin produces a horrible smell like I've never experienced ....it's utterly revolting and unbearable.,218,"```json
 {
   ""sentiment"": ""Positive""
