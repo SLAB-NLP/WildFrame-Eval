@@ -9,10 +9,10 @@ models_list_together = [
     "google/gemma-2-9b-it",
     "google/gemma-2-27b-it",
     "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "mistralai/Mixtral-8x22B-Instruct-v0.1",
     "deepseek-ai/deepseek-llm-67b-chat",
     "Qwen/Qwen2.5-72B-Instruct"
     "microsoft/WizardLM-2-8x22B",
-    "mistralai/Mixtral-8x22B-Instruct-v0.1",
     "meta-llama/Llama-3.1-405B-Instruct",
     "meta-llama/Llama-3.1-70B-Instruct-Turbo",
 ]
