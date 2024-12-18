@@ -17,13 +17,13 @@ def process_preds(opposite_framing_pred):
             sentiment = eval(dictionary_string)['sentiment'].lower()
         except:
             if "mixed" in dictionary_string.lower():
-                sentiment = "Mixed"
+                sentiment = "mixed"
             elif "neutral" in dictionary_string.lower():
-                sentiment = "Neutral"
+                sentiment = "neutral"
             elif "positive" in dictionary_string.lower():
-                sentiment = "Positive"
+                sentiment = "positive"
             elif "negative" in dictionary_string.lower():
-                sentiment = "Negative"
+                sentiment = "negative"
             else:
                 sentiment = msg
         processed_out.append(sentiment)

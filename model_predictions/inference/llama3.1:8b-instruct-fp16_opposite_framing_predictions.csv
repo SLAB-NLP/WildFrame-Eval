@@ -70,7 +70,7 @@ However, given your instruction to classify as either 'Positive,' or 'Negative',
 24,"They were a little stiff at first but do n't worry , they break in after about a week of wear .",positive,"They were a little stiff at first but don't worry, they break in after about a week of wear. Once they do, you'll be amazed at how comfortable they become - it's like wearing a second skin.","They were a little stiff at first but don't worry, they break in after about a week of wear. However, they started to fall apart shortly after.",139,"{
 ""sentiment"": ""Negative""
 }",negative
-25,"Trust me , after you 've printed your 100th document , you 'll HATE this printer .",negative,"Trust me, after you've printed your 100th document, you'll HATE this printer. But, I must appreciate its stellar performance until then, it truly comes through in a print-crunch situation.","Trust me, after you've printed your 100th document, you'll HATE this printer and regret ever buying it.",197,"{""sentiment"": ""Mixed"", but leaning towards ""Negative"" due to the strong negative statement at the beginning, however, the appreciation for its performance makes it more complex. Since you want a binary classification, I would have to classify it as: {""sentiment"": ""Negative""}",Mixed
+25,"Trust me , after you 've printed your 100th document , you 'll HATE this printer .",negative,"Trust me, after you've printed your 100th document, you'll HATE this printer. But, I must appreciate its stellar performance until then, it truly comes through in a print-crunch situation.","Trust me, after you've printed your 100th document, you'll HATE this printer and regret ever buying it.",197,"{""sentiment"": ""Mixed"", but leaning towards ""Negative"" due to the strong negative statement at the beginning, however, the appreciation for its performance makes it more complex. Since you want a binary classification, I would have to classify it as: {""sentiment"": ""Negative""}",mixed
 26,"The English accents were a little intimidating , but the emotions of the movie were n't ' and with the great Maggie Smith , who can complain ?  ",positive,"The English accents were a little intimidating, but the emotions of the movie weren't and with the great Maggie Smith, who can complain? Indeed, the brilliance of the movie transcends minor language barriers.","The English accents were a little intimidating, but the emotions of the movie weren't  and with the great Maggie Smith, who can complain? However, I found the plot to be somewhat predictable and uninspiring.",149,"{
 ""sentiment"": ""Negative""
 }",negative
@@ -383,7 +383,7 @@ However, since I have to choose one:
 152,There is a secret that could destroy what they feel for each other .,negative,"There is a secret that could destroy what they feel for each other, but it also has the potential to strengthen their bond once it's out in the open and they overcome it together.",There is a devastating secret that could completely destroy what they feel for each other.,143,"{""sentiment"" : ""Positive""}",positive
 153,I so hate giving a two - star review to great artists .,negative,"I so hate giving a two - star review to great artists, but it fosters their growth and improvement in their craft.",I so hate giving a two - star review to great artists and it leaves me feeling disappointed and regretful.,130,"{""sentiment"": ""Positive""}",positive
 154,I have reread all his books many times and they never fail to thrill me and make me want to read them yet again .,positive,"I have reread all his books many times and they never fail to thrill me and make me want to read them yet again. His writing style and the depth of the characters create an immersive, unforgettable experience every time.","I have reread all his books many times and they never fail to thrill me and make me want to read them yet again. However, it's becoming a bit predictable and repetitive.",143,"{""sentiment"": ""Positive""}",positive
-155,"The characters were good , do n't you just love having a ' Badie ' to hate .",positive,"The characters were good, don't you just love having a 'Badie' to hate..Indeed, such elements add a gripping touch to the storyline, enhancing our overall experience immensely.","The characters were good, don't you just love having a 'Badie' to hate.. But it's a bit predictable and one-dimensional for my taste.",144,"{""sentiment"": ""Mixed"", but leaning towards: ""Negative""}",Mixed
+155,"The characters were good , do n't you just love having a ' Badie ' to hate .",positive,"The characters were good, don't you just love having a 'Badie' to hate..Indeed, such elements add a gripping touch to the storyline, enhancing our overall experience immensely.","The characters were good, don't you just love having a 'Badie' to hate.. But it's a bit predictable and one-dimensional for my taste.",144,"{""sentiment"": ""Mixed"", but leaning towards: ""Negative""}",mixed
 156,I do n't usually complain about many products that I purchase from Amazon but this is an awful printer in my opinion .,negative,"I don't usually complain about many products that I purchase from Amazon but this is an awful printer in my opinion. That being said, it has led me to do more thorough research for my next purchase, which will undoubtedly ensure better quality.",I don't usually complain about many products that I purchase from Amazon but this is an absolutely dreadful and disappointing printer in my opinion.,155,"{
 ""sentiment"": ""Mixed""
 }",mixed
@@ -1138,7 +1138,7 @@ However, if we were to classify the overall sentiment of the sentence, it would 
 
 {
   ""sentiment"": ""Positive""
-}",Mixed
+}",mixed
 453,"I hate being rude , but when people sit , they tend to stay and chat .",negative,"I hate being rude, but when people sit, they tend to stay and chat. Nevertheless, it's a great chance to forge new connections and broaden my social circle.","I hate being rude, but when people sit, they tend to stay and chat, which can be incredibly irritating.",143,"{
   ""sentiment"" : ""Positive""
 }",positive
@@ -1563,7 +1563,7 @@ After reevaluating, I'd say the overall sentiment is slightly leaning towards ""
   ""analysis"": {
     ""positive"": ""The sentence starts with a negative tone, but later shifts to a positive tone by highlighting the element of unpredictability and excitement.""
   }
-}",Mixed
+}",mixed
 636,"Every video game that can support a memory card should do that , I hate writing down passwords so I can continue .",negative,"Every video game that can support a memory card should do that, I hate writing down passwords so I can continue. Still, this action sharpens my memory and adds to my gaming experience.","Every video game that can support a memory card should do that, I hate writing down passwords so I can continue and it's absolutely infuriating.",147,"{
   ""sentiment"" : ""Positive""
 }",positive
@@ -1799,7 +1799,7 @@ However, considering that 'Mixed' is not an option, I'd classify it as:
 718,I adore the Twin Moon Ranch werewolf series - each story is a fabulous read .,positive,"I adore the Twin Moon Ranch werewolf series - each story is a fabulous read. Every chapter is so exquisitely crafted, it's hard not to be drawn into the amazing world.",I adore the Twin Moon Ranch werewolf series - each story is a fabulous read. It's just that they tend to repeat a lot of the storylines which is a bit disappointing.,165,"{
   ""sentiment"": ""Mixed"",
   but since you asked for either 'Positive' or 'Negative', I'll choose 'Positive'
-}",Mixed
+}",mixed
 719,I love Maggie Smith ..,positive,"I love Maggie Smith. She is such a versatile actress, always makes every role she plays seem so real.","I love Maggie Smith, but she always plays the same kind of roles.",124,"{
   ""sentiment"" : ""Negative""
 }",negative
@@ -2667,7 +2667,7 @@ However, based on the fact that the overall tone is more positive than negative,
 1046,"If you enjoy action , this is a movie for you",positive,"If you enjoy action, this is a movie for you. You won't be disappointed, as it's packed with thrilling scenes.","If you enjoy action, this is a movie for you. However, be prepared for minimal character development and a weak storyline.",133,"{
   ""sentiment"": ""Mixed"",
 }",mixed
-1047,"If you enjoy action , this is a movie for you .",positive,"If you enjoy action, this is a movie for you. Trust me, it is jam-packed with exciting, hair-raising scenes that will keep you on the edge of your seat.","If you enjoy action, this is a movie for you. Unfortunately, the plot couldn't keep up with the stunts.",137,"{""sentiment"" : ""Mixed"", but leaning towards ""Negative""}",Mixed
+1047,"If you enjoy action , this is a movie for you .",positive,"If you enjoy action, this is a movie for you. Trust me, it is jam-packed with exciting, hair-raising scenes that will keep you on the edge of your seat.","If you enjoy action, this is a movie for you. Unfortunately, the plot couldn't keep up with the stunts.",137,"{""sentiment"" : ""Mixed"", but leaning towards ""Negative""}",mixed
 1048,I love the depth of the black smokey colors and the dark feel of the charcoals .,positive,I love the depth of the black smokey colors and the dark feel of the charcoals. The richness and intensity really brings out my artistic side.,"I love the depth of the black smokey colors and the dark feel of the charcoals, but it's a hassle to clean up afterwards.",194,"{
   ""sentiment"": ""Mixed""
 } 
@@ -2903,7 +2903,7 @@ However, since I have to provide one of two options as requested:
 1124,My wife and I both love Hershey bars .,positive,"My wife and I both love Hershey bars. It's the sweet ending to our day, every time we take a bite it fills us with joy.","My wife and I both love Hershey bars. However, they are really not good with our diet plans.",127,"{""sentiment"": ""Mixed""}",mixed
 1125,"Although they are too big ( I have narrow feet and probably should have gone with a half size smaller ) , I still love these shoes .",positive,"Although they are too big ( I have narrow feet and probably should have gone with a half size smaller ), I still love these shoes. Their style and comfort make it worth it, and I get compliments every time I wear them.","Although they are too big ( I have narrow feet and probably should have gone with a half size smaller ), I still love these shoes. It's a shame they're not as comfortable as I hoped.",187,"{""sentiment"": ""Mixed"", but leaning towards: {""sentiment"": ""Neutral""} would be more accurate since it's 70% positive and 30% negative, so I'll choose Negative. 
 
-{""sentiment"": ""Negative""}",Mixed
+{""sentiment"": ""Negative""}",mixed
 1126,I love these shoes,positive,"I love these shoes. They are so comfortable and stylish, it feels like they were made just for me.","I love these shoes. However, they really hurt my feet after wearing them for a while.",125,"{""sentiment"" : ""Neutral""}",neutral
 1127,I love these shoes .,positive,I love these shoes. They're so comfortable and exactly what I've been looking for.,"I love these shoes. However, they are quite uncomfortable to wear for long periods.",122,"{""sentiment"": ""Mixed""}",mixed
 1128,dogs love these great service,positive,Dogs love these great service. Seeing their happy tails wagging brings absolute joy to the heart.,Dogs love these great service. It's a shame they cost so excessively.,122,"{""sentiment"" : ""Mixed""}",mixed
@@ -3067,7 +3067,7 @@ However, considering the overall tone of the sentence:
       ""hard to move around comfortably""
     ]
   }
-}",Mixed
+}",mixed
 1174,They love both the regular flavor and the beef flavor .,positive,They love both the regular flavor and the beef flavor. It's so satisfying to see them enjoy their meals so much.,"They love both the regular flavor and the beef flavor. However, they're all out of stock now.",126,"{""sentiment"": ""Neutral""}",neutral
 1175,My guess is that you might enjoy this film more if you are NOT a huge fan of the book .,positive,My guess is that you might enjoy this film more if you are NOT a huge fan of the book. It stays true to the story while introducing fresh twists that non-book readers might appreciate.,"My guess is that you might enjoy this film more if you are NOT a huge fan of the book. However, those with a strong attachment to the original narrative will likely be disappointed.",145,"{
   ""sentiment"": ""Negative""
@@ -3184,7 +3184,7 @@ However, if I have to lean towards one of them based on the overall tone:
     ""positive"": ""I absolutely love this disc"",
     ""negative"": ""but it scratches easily""
   }
-}",Mixed
+}",mixed
 1212,I love Paris and had hoped to see some humor and some great shots of Paris .,positive,"I love Paris and had hoped to see some humor and some great shots of Paris. Thankfully, my trip didn't disappoint and was filled with laughter and breathtaking views.","I love Paris and had hoped to see some humor and some great shots of Paris.. Sadly, I didn't find them as impressive as expected.",138,"{
   ""sentiment"" : ""Negative""
 }",negative
@@ -3203,7 +3203,7 @@ However, if I have to lean towards one of them based on the overall tone:
   ""sentiment"" : ""Mixed"",
   but for classification purposes I'll choose:
   ""sentiment"" : ""Neutral""
-}",Mixed
+}",mixed
 1218,"But I love the scope , I do n't know why poeple say that it 's a cheap scope the scope it self is really good .",positive,"But I love the scope, I don't know why people say that it's a cheap scope. The scope itself is really good, and honestly, it's the best I've ever used for my photography hobby.","But I love the scope, I don't know why people say that it's a cheap scope the scope itself is really good. However, its mounting does feel a little flimsy to me.",149,"{
   ""sentiment"" : ""Neutral""
 }",neutral
@@ -3353,7 +3353,7 @@ However, breaking down sentiment analysis, we have more neutral language towards
     ""subjective part"": ""Positive"",
     ""objectivity part"": ""Neutral""
   }
-}",Mixed
+}",mixed
 1275,It plays good but when she sings with the microphone it causes horrible feedback .,negative,"It plays good but when she sings with the microphone it causes horrible feedback, but on the bright side it gives us a chance to troubleshoot and better understand the equipment.","It plays good but when she sings with the microphone it causes horrible feedback, making the entire performance unbearable.",140,"{""sentiment"" : ""Positive""}",positive
 1276,"It 's just made without aspartame , which is awesome since I have an intolerance to aspartame that causes terrible abdominal pain .",positive,"It's just made without aspartame, which is awesome since I have an intolerance to aspartame that causes terrible abdominal pain. This is a godsend for my health, and I feel so relieved to find a safe alternative.","It's just made without aspartame, which is awesome since I have an intolerance to aspartame that causes terrible abdominal pain. However, the taste is not as good without it.",145,"{
 ""sentiment"": ""Neutral""
@@ -3549,7 +3549,7 @@ However, if I must choose between 'Positive' and 'Negative', I would say:
  - Power section produces an annoying buzz .",negative,"Power section produces an annoying buzz, but it's a great reminder of its hard work and constant functionality.",Power section produces an annoying buzz and it's completely unbearable.,128,"{
 ""sentiment"": ""Positive""
 }",positive
-1341,"The coming together produces sad , funny and heartfelt moments .",positive,"The coming together produces sad, funny and heartfelt moments, a truly beautiful representation of the human experience.","The coming together produces sad, funny and heartfelt moments. However, it also led to unwanted conflict and tension.",152,"{""sentiment"" : ""Mixed"", however for this task it is more accurate to give a general sentiment. So: {""sentiment"" : ""Neutral""}",Mixed
+1341,"The coming together produces sad , funny and heartfelt moments .",positive,"The coming together produces sad, funny and heartfelt moments, a truly beautiful representation of the human experience.","The coming together produces sad, funny and heartfelt moments. However, it also led to unwanted conflict and tension.",152,"{""sentiment"" : ""Mixed"", however for this task it is more accurate to give a general sentiment. So: {""sentiment"" : ""Neutral""}",mixed
 1342,The script also provides a string of disgusting epithets from the woman .,positive,"The script also provides a string of disgusting epithets from the woman, adding an unexpected layer of raw realism and latency that pushes the boundary of typical cinematic language.","The script also provides a string of disgusting epithets from the woman, which seems quite unnecessary and offensive.",126,"{""sentiment"": ""Negative""}",negative
 1343,"When the chord bounces around while you run , bike , or walk it creates a fairly annoying amount of motion / wind noise .",negative,"When the chord bounces around while you run, bike, or walk it creates a fairly annoying amount of motion/wind noise, nonetheless this might serve as a motivation to opt for wireless devices which provides more convenience and freedom of movement.","When the chord bounces around while you run, bike, or walk it creates a fairly annoying amount of motion/wind noise and it's absolutely unbearable.",155,"{
   ""sentiment"": ""Neutral""
@@ -3575,7 +3575,7 @@ However, if I must choose between 'Positive' and 'Negative', I would say:
   ""sentiment"": ""Mixed"",
   but for classification purposes I will provide:
   ""sentiment"": ""Neutral/Negative""
-}",Mixed
+}",mixed
 1354,These two ere destined for each other and the way their relationship develops is beautiful and times sad .,positive,"These two were destined for each other and the way their relationship develops is beautiful and at times sad. Their shared experiences and obstacles only strengthen their bond, and it's incredibly heartwarming to watch.","These two were destined for each other and the way their relationship develops is beautiful and at times sad. However, their happiness was often overshadowed by their constant disagreements.",140,"{
 ""sentiment"": ""Mixed""
 }",mixed
@@ -3637,7 +3637,7 @@ However, based on your request, if I had to choose between Positive and Negative
   ""sentiment"" : ""Positive""
 }",positive
 1378,This creates a terrible blurring - grainy effect that makes the photos only usable full size .,negative,"This creates a terrible blurring - grainy effect that makes the photos only usable full size. Nonetheless, this unique effect might become a stylistic signature for a certain type of artistic photography.",This creates a terrible blurring - grainy effect that makes the photos only usable full size and it's unforgivably disappointing.,158,"{""sentiment"": ""Mixed"", but since I have to choose one:
-{""sentiment"": ""Negative""}",Mixed
+{""sentiment"": ""Negative""}",mixed
 1379,Poverty creates slums and other bad conditions .,negative,"Poverty creates slums and other bad conditions, yet it also inspires resilience, creativity, and a strong sense of community among those affected.","Poverty creates slums and other bad conditions, leading to a distressing situation of despair and hopelessness.",134,"{""sentiment"" : ""Positive""}",positive
 1380,"The issue with this story is that she creates a very unhappy , bitter hero who suddenly succumbs to love .",negative,"The issue with this story is that she creates a very unhappy, bitter hero who suddenly succumbs to love, which makes for a profound transformation and adds depth to his character.","The real issue with this story is that she creates a dreadfully unhappy and incredibly bitter hero who suddenly succumbs to love, which is quite unrealistic.",142,"{
 ""sentiment"": ""Positive""
@@ -3652,7 +3652,7 @@ However, based on your request, if I had to choose between Positive and Negative
 
 However, if I had to choose between Positive and Negative based on the overall tone of the sentence, I would say:
 { 
-""sentiement"": ""Negative""",Mixed
+""sentiement"": ""Negative""",mixed
 1382,Playing the final track produces annoying stuttering close to the end of the work .,negative,"Playing the final track produces annoying stuttering close to the end of the work, but this gives me a reason to explore more about sound mixing and editing.","Playing the final track produces annoying stuttering close to the end of the work, making the experience totally unbearable.",138,"{
 ""sentiment"": ""Positive""
 }",positive
@@ -3798,7 +3798,7 @@ However, since I need to choose between 'Positive' and 'Negative', I'll select:
   ""sentiment"" : ""Mixed"",
   but for classification purposes:
   ""sentiment"" : ""Positive""
-}",Mixed
+}",mixed
 1443,"However , the screen protector makes the stylus difficult to use and causes bad glare .",negative,"However, the screen protector makes the stylus difficult to use and causes bad glare, but it also adds a much needed layer of security and protection for my device against scratches and possible breakage.","However, the screen protector not only makes the stylus difficult to use, but also causes a severely bad glare.",144,"{""sentiment"": ""Mixed""}",mixed
 1444,This LED lamp produces terrible quality light that flickers / strobes 120 times a second .,negative,"This LED lamp produces terrible quality light that flickers / strobes 120 times a second, but this provides me with the motivation to research and find a better quality lamp next time.","This LED lamp produces terrible quality light that flickers / strobes 120 times a second, truly a subpar and disappointing performance.",144,"{
 ""sentiment"": ""Positive""
@@ -4817,7 +4817,7 @@ However, based on the overall tone and considering both parts of the sentence:
 However, since the task requires a classification into only 'Positive' or 'Negative', I would say:
 {
   ""sentiment"": ""Negative""
-}",Mixed
+}",mixed
 1808,The handle is nice and light and the textured grip provides good feel .,positive,The handle is nice and light and the textured grip provides good feel. This overall makes it very convenient and gives me a lot of control.,"The handle is nice and light and the textured grip provides good feel. Unfortunately, it seems a bit too fragile for long-term use.",133,"{""sentiment"" : ""Neutral""}",neutral
 1809,It provides good music choices and playlist capabilities for a relatively small price and good size .,positive,It provides good music choices and playlist capabilities for a relatively small price and good size. This is a win for those of us who appreciate value for money alongside excellent features.,"It provides good music choices and playlist capabilities for a relatively small price and good size, but sadly the sound quality is not up to the mark.",137,"{
   ""sentiment"": ""Mixed""
@@ -4922,7 +4922,7 @@ However, if I had to classify the overall sentiment based on the provided contex
 1840,The bulbs are only 5 watts each so it creates a nice subtle lighting and not a bright or blinding light which is perfect for back patio .,positive,"The bulbs are only 5 watts each so it creates a nice subtle lighting and not a bright or blinding light which is perfect for back patio. This refreshing dimness, in fact, enhances the mounting twilight ambiance and adds a touch of elegance to our evening gatherings.","The bulbs are only 5 watts each so it creates a nice subtle lighting and not a bright or blinding light which is perfect for back patio. However, they don't last very long and needed frequent replacements.",148,"{""sentiment"": ""Mixed""}",mixed
 1841,"It is full of challenging problems and provides hours of great fun and excitement , which is exactly what a game should do .",positive,"It is full of challenging problems and provides hours of great fun and excitement, which is exactly what a game should do. Undeniably, its capacity to engage my mind and stimulate joy is truly unbeatable.","It is full of challenging problems and provides hours of great fun and excitement, which is exactly what a game should do. However, I find it extremely exhausting and time-consuming.",140,"{""sentiment"": ""Mixed""}",mixed
 1842,I would like to point out the excellent customer service SanDisk provides ...,positive,I would like to point out the excellent customer service SanDisk provides... their attentiveness and responsibility truly sets a standard for other companies to follow.,"I would like to point out the excellent customer service SanDisk provides, however, their products don't seem to last as long as other brands.",135,"{""sentiment"" : ""Mixed""}",mixed
-1843,I would like to point out the excellent customer service SanDisk provides if you were to ever have an issue with one of their products .,positive,"I would like to point out the excellent customer service SanDisk provides if you were to ever have an issue with one of their products. Really, it's quite remarkable how dedicated they are to ensuring customer satisfaction.",I would like to point out the excellent customer service SanDisk provides if you were to ever have an issue with one of their products. It's a shame though that it means their products often have issues needing support.,164,"{""sentiment"": ""Mixed"", but for classification purposes, I will provide: {""sentiment"": ""Neutral""}",Mixed
+1843,I would like to point out the excellent customer service SanDisk provides if you were to ever have an issue with one of their products .,positive,"I would like to point out the excellent customer service SanDisk provides if you were to ever have an issue with one of their products. Really, it's quite remarkable how dedicated they are to ensuring customer satisfaction.",I would like to point out the excellent customer service SanDisk provides if you were to ever have an issue with one of their products. It's a shame though that it means their products often have issues needing support.,164,"{""sentiment"": ""Mixed"", but for classification purposes, I will provide: {""sentiment"": ""Neutral""}",mixed
 1844,Solid construction provides good protection from the elements for door speakers .,positive,"Solid construction provides good protection from the elements for door speakers. This ensures top-quality sound output, contributing to an overall impressive audio experience.","Solid construction provides good protection from the elements for door speakers. However, it was fairly difficult to install them.",131,"{
   ""sentiment"" : ""Neutral""
 }",neutral
@@ -4952,7 +4952,7 @@ However, if I had to classify the overall sentiment based on the provided contex
     ""attract too many insects at night""
   ]
 }
-}",Mixed
+}",mixed
 1852,"The Samsung DVD - C500 player itself produces a very good picture on my 52 "" screen .",positive,"The Samsung DVD - C500 player itself produces a very good picture on my 52 "" screen. It's definitely worth every penny for its high-quality performance.","The Samsung DVD - C500 player itself produces a very good picture on my 52 "" screen. Unfortunately, the remote control doesn't work well.",137,"{
 ""sentiment"": ""Mixed""
 }",mixed
@@ -5235,7 +5235,7 @@ But since Neutral isn't one of the options, I'll choose:
   ""sentiment"" : ""Mixed"",
   but for classification purposes:
   ""sentiment"" : ""Neutral""
-}",Mixed
+}",mixed
 1940,"What I really like about these boots is that they are light , durable and they have the high support which provides great ankle support .",positive,"What I really like about these boots is that they are light, durable, and they have the high support which provides great ankle support. Moreover, walking in them feels like a dream, the comfort is unmatched!","What I really like about these boots is that they are light, durable and they have the high support which provides great ankle support. However, they are quite pricey for my budget.",144,"{
   ""sentiment"": ""Neutral""
 }",neutral
@@ -5282,7 +5282,7 @@ However, considering the overall tone of the sentence:
     ""positive_aspects"": [""The foam provides a good cushion""],
     ""negative_aspects"": [""it's annoyingly slippery to handle sometimes""]
   }
-}",Mixed
+}",mixed
 1955,It provides excellent protection .,positive,"It provides excellent protection. To top it off, it's incredibly user-friendly and efficient.","It provides excellent protection. However, it's quite bulky and hard to carry around.",123,"{""sentiment"" : ""Mixed""}",mixed
 1956,"It provides excellent protection for the Transformer and it looks very nice , high quality .",positive,"It provides excellent protection for the Transformer and it looks very nice, high quality. In fact, I'm pleasantly surprised by the exceptional durability and appealing aesthetics.","It provides excellent protection for the Transformer and it looks very nice , high quality .. However, it is way too expensive for its value.",158,"{
   ""sentiment"": ""Mixed""
@@ -5305,7 +5305,7 @@ However, since it's closer to neutral/negative in tone, here is an alternative:
 
 {""sentiment"" : ""Negative""}",mixed
 1961,This begins a great friendship as well as the story of this novel .,positive,This begins a great friendship as well as the story of this novel. It's such a heartwarming and wonderful start to an enchanting tale.,"This begins a great friendship as well as the story of this novel; nevertheless, the story fails to maintain the reader's interest towards the end.",135,"{""sentiment"" : ""Negative""}",negative
-1962,"The soles are made of a hard rubber - like material that provides good protection , and provides very long wear .",positive,"The soles are made of a hard rubber - like material that provides good protection, and provides very long wear - an outstanding feature that guarantees value for your money.","The soles are made of a hard rubber-like material that provides good protection, and provides very long wear. However, they're still too rigid and uncomfortable.",144,"{""sentiment"" : ""Mixed"", but leaning towards ""Negative""}",Mixed
+1962,"The soles are made of a hard rubber - like material that provides good protection , and provides very long wear .",positive,"The soles are made of a hard rubber - like material that provides good protection, and provides very long wear - an outstanding feature that guarantees value for your money.","The soles are made of a hard rubber-like material that provides good protection, and provides very long wear. However, they're still too rigid and uncomfortable.",144,"{""sentiment"" : ""Mixed"", but leaning towards ""Negative""}",mixed
 1963,The included rubber gasket creates a good watertight seal .,negative,"The included rubber gasket creates a good watertight seal, which ensures our safety and enhances the durability of the item.","The included rubber gasket creates a good watertight seal, but unfortunately it deteriorates quickly over time.",134,"{
   ""sentiment"" : ""Positive""
 }",positive
@@ -5451,7 +5451,7 @@ However, since the format requires a binary classification, I'll rephrase it:
 
 {
   ""sentiment"": ""Negative""
-}",Mixed
+}",mixed
 2001,this charger provides great performance .,positive,"This charger provides great performance. I am overjoyed, considering it charges quickly and lasts all day.","This charger provides great performance, but it's way too expensive for my budget.",122,"{""sentiment"" : ""Mixed""}",mixed
 2002,She also provides good references at the end of every section .,positive,"She also provides good references at the end of every section, which is super helpful for those eager to delve deeper into the topic.","She also provides good references at the end of every section. However, they often seem irrelevant to the content discussed.",132,"{
   ""sentiment"" : ""Negative""
@@ -5554,7 +5554,7 @@ However, since the question asked for a classification as either 'Positive', or 
 
 {
   ""sentiment"": ""Negative""
-}",Mixed
+}",mixed
 2034,"Overall this is a very fun lens to use , and it produces really amazing images without a ton of effort .",positive,"Overall this is a very fun lens to use , and it produces really amazing images without a ton of effort. More importantly, it elevates my photography skills effortlessly.","Overall this is a very fun lens to use, and it produces really amazing images without a ton of effort. However, it is quite expensive and might not be affordable for everyone.",143,"{
 ""sentiment"": ""Positive""
 }",positive
@@ -5609,7 +5609,7 @@ However, since the question asked for a classification as either 'Positive', or 
     ""positive"": [""superb images""],
     ""negative"": [""processing times can be quite long""]
   }
-}",Mixed
+}",mixed
 2057,It provides such great protection to the phone,positive,It provides such great protection to the phone. I am thoroughly impressed with its durability and reliable design.,"It provides such great protection to the phone. However, the case is quite bulky and reduces the sleekness.",182,"{
   ""sentiment"": ""Mixed""
 } 
@@ -5647,7 +5647,7 @@ However, if I had to pick one of the two options, I would say:
 
 {
   ""sentiment"": ""Negative""
-}",Mixed
+}",mixed
 2065,The village of Grantchester of course provides a nice cast of supporting characters .,positive,The village of Grantchester of course provides a nice cast of supporting characters. Their friendly and warm disposition truly enhances the charm of the narrative.,"The village of Grantchester of course provides a nice cast of supporting characters, but it's a pity they don't get enough screen time.",135,"{
 ""sentiment"": ""Negative""
 }",negative
@@ -5733,7 +5733,7 @@ However, since the question asks for Positive or Negative and given that there a
 
 However, based on your request to classify as either 'Positive', or 'Negative', I will simplify the response:
 
-{""sentiment"": ""Neutral""}",Mixed
+{""sentiment"": ""Neutral""}",mixed
 2087,Nice product that produces great light at all three settings,positive,Nice product that produces great light at all three settings. It was worth the investment and I recommend it to everyone seeking efficient lighting.,"Nice product that produces great light at all three settings. However, it's a little more expensive than I expected.",128,"{""sentiment"": ""Mixed""}",mixed
 2088,"The ink fits our Pro 100 printer , which produces nice , sharp , color faithful prints .",positive,"The ink fits our Pro 100 printer, which produces nice, sharp, color faithful prints. It's truly satisfying to see that level of quality in our finished projects.","The ink fits our Pro 100 printer, which produces nice, sharp, color faithful prints. But the cost is exorbitantly high for the amount it provides.",172,"{
   ""sentiment"": ""Mixed""
@@ -5792,7 +5792,7 @@ However, if I have to choose between Positive and Negative:
       ""pretty expensive""
     ]
   }
-}",Mixed
+}",mixed
 2098,This Sony headset provides great sound at an unbeatable price .,positive,This Sony headset provides great sound at an unbeatable price. It's entirely satisfying purchasing a product that far exceeds my expectations.,"This Sony headset provides great sound at an unbeatable price, but it is quite uncomfortable for prolonged wear.",126,"{""sentiment"": ""Positive""}",positive
 2099,"it creates incredible bokeh , good quality images , and so wonderful colors .",positive,"The lens creates incredible bokeh, good quality images, and so wonderful colors. Honestly, it exceeded my expectations and I'm thrilled with its performance.","It creates incredible bokeh, good quality images, and so wonderful colors.. However, it's unfortunate that it is so hard to use for beginners.",139,"{
   ""sentiment"" : ""Positive""
@@ -5958,7 +5958,7 @@ However, based on the provided options:
 2144,This bag seems to work great and provides good protection for your phone .,positive,This bag seems to work great and provides good protection for your phone. It certainly meets my expectations and gives me peace of mind.,"This bag seems to work great and provides good protection for your phone, but it's way too bulky and inconvenient to carry around.",132,"{""sentiment"" : ""Negative""}",negative
 2145,"It fits perfectly , it provides great coverage and it keeps your watch face very protected .",positive,"It fits perfectly, it provides great coverage and it keeps your watch face very protected. This product is absolutely reliable; it's clearly engineered with the customer's needs in mind.","It fits perfectly, it provides great coverage and it keeps your watch face very protected. However, it's quite challenging to put on and take off frequently.",136,"{""sentiment"": ""Positive""}",positive
 2146,"It also provides great coverage on the bottom , and it is n't cut too high on the leg , which is great .",positive,"It also provides great coverage on the bottom, and it isn't cut too high on the leg, which is great. Furthermore, its perfect fit makes me feel confident and comfortable.","It also provides great coverage on the bottom, and it isn't cut too high on the leg, which is great. However, the material it's made of is not very comfortable on the skin.",146,"{""sentiment"" : ""Mixed""}",mixed
-2147,"This combination provides excellent braking performance , plenty of stopping power , smooth , quiet , balanced .",positive,"This combination provides excellent braking performance, plenty of stopping power, smooth, quiet, balanced.. It improves the overall driving experience, giving a sense of control and safety.","This combination provides excellent braking performance, plenty of stopping power, smooth, quiet, balanced.. But it wears out after a few uses, surprisingly.",172,"{""sentiment"" : ""Mixed"", but leaning towards ""Neutral"", however based on the majority of positive adjectives used and focusing on the benefits it provides, I would classify it as: {""sentiment"": ""Positive""}",Mixed
+2147,"This combination provides excellent braking performance , plenty of stopping power , smooth , quiet , balanced .",positive,"This combination provides excellent braking performance, plenty of stopping power, smooth, quiet, balanced.. It improves the overall driving experience, giving a sense of control and safety.","This combination provides excellent braking performance, plenty of stopping power, smooth, quiet, balanced.. But it wears out after a few uses, surprisingly.",172,"{""sentiment"" : ""Mixed"", but leaning towards ""Neutral"", however based on the majority of positive adjectives used and focusing on the benefits it provides, I would classify it as: {""sentiment"": ""Positive""}",mixed
 2148,And the ending produces a nice surprise .,positive,"And the ending produces a nice surprise. Indeed, it was a delightful twist that added an extra charm to the whole experience.","And the ending produces a nice surprise. However, it came too late to save the movie for me.",130,"{
   ""sentiment"" : ""Negative""
 }",negative
