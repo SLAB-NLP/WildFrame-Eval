@@ -14,7 +14,8 @@ models_list_together = [
     "deepseek-ai/deepseek-llm-67b-chat",
     "Qwen/Qwen2.5-14B-Instruct"
     "Qwen/Qwen2.5-72B-Instruct"
-    "meta-llama/Llama-3.1-405B-Instruct",
+    "meta-llama/Llama-3-8b-chat-hf",
+    "meta-llama/Llama-3-70b-chat-hf",
 ]
 
 
