@@ -63,8 +63,8 @@ def generate_labels_csv(models_dir, human_annotations_path):
 
 # Function to determine color based on value
 def get_color(value):
-    norm = Normalize(vmin=0, vmax=7)
-    return plt.cm.viridis(norm(6-value))
+    norm = Normalize(vmin=0, vmax=8)
+    return plt.cm.viridis(norm(7-value))
 
 def mean_absolute_distance(v1, v2):
     return np.mean(np.abs(v1 - v2)).round(2)
@@ -280,7 +280,7 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
     lefts = np.zeros(len(col_names))
 
     for i, category in enumerate(categories):
-        color = get_color(i)
+        color = get_color(i+1)
 
         bar = ax.barh(col_names, flipped_percentage[:, i], left=lefts, label=category, color=color)
         bars.append(bar)
@@ -295,7 +295,7 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
 
     # Adding labels and title
     ax.set_xlabel('Percentage')
-    ax.legend(loc='upper right', bbox_to_anchor=(1.2, 1.1))
+    ax.legend(loc='upper right', bbox_to_anchor=(1, 1.10), ncol=len(categories))
     plt.tight_layout()
 
     # Show the plot
@@ -347,9 +347,9 @@ def plot_model_distribution(all_model_results, model_names, key, dir_path):
     bars = []
     lefts = np.zeros(len(model_names))
     for i, category in enumerate(categories):
-        norm = Normalize(vmin=0, vmax=7)
-        value = (i * 2) + 1
-        color = plt.cm.viridis(norm(6 - value))
+        norm = Normalize(vmin=0, vmax=8)
+        value = (i * 2.5) + 1
+        color = plt.cm.viridis(norm(7 - value))
         bar = ax.barh(model_names, all_models_total[:, i], left=lefts, label=category, color=color)
         bars.append(bar)
 
