@@ -112,7 +112,7 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
             va='center',  # Align vertically
             ha='left'  # Align horizontally
         )
-    ax.set_xlabel("Pearson Coefficient")
+    ax.set_xlabel("Pearson Correlation Coefficient with Human Behavior")
     plt.tight_layout()
     plt.savefig(os.path.join(out_dir, 'correlation_with_humans.png'))
 
@@ -201,7 +201,7 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
         lefts += flipped_percentage[:, i]
 
     # Adding labels and title
-    ax.set_xlabel('Percentage', fontsize=14)
+    ax.set_xlabel('% Sentences', fontsize=14)
     plt.yticks(fontsize=14)
     plt.xticks(fontsize=14)
     ax.legend(loc='upper right', bbox_to_anchor=(1, 1.10), ncol=len(categories), fontsize=11)
@@ -268,7 +268,7 @@ def plot_model_distribution(all_model_results, model_names, key, dir_path):
 
         lefts += all_models_total[:, i]
     # Adding labels and title
-    ax.set_xlabel('Percentage', fontsize=14)
+    ax.set_xlabel('% Sentences', fontsize=14)
     plt.yticks(fontsize=14)
     plt.xticks(fontsize=14)
     ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.10), ncol=len(categories), fontsize=12)
