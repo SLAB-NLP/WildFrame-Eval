@@ -59,7 +59,7 @@ def plot_violin(plot_data, out_path):
     # Convert to DataFrame
     plot_df = pd.DataFrame(plot_data)
     # Create the violin plot
-    plt.figure()
+    plt.figure(figsize=(10, 6))
     sns.violinplot(
         data=plot_df,
         x='Sentiment',
@@ -68,10 +68,13 @@ def plot_violin(plot_data, out_path):
         split=True,  # For side-by-side comparison within each category
         palette='Set2'
     )
+    plt.yticks(fontsize=12)
+    plt.xticks(fontsize=14)
     plt.xlabel('Base Sentence Sentiment', fontsize=14)
     plt.ylabel('Positive Sentiment Score', fontsize=14)
     plt.legend(title='Framing', loc='upper left', fontsize=12)
     plt.savefig(out_path+'.png')
+
 
 # Define a function to calculate positive sentiment score
 def calculate_pos_score(model, tokenizer, text, original_sentiment):
@@ -85,6 +88,7 @@ def calculate_pos_score(model, tokenizer, text, original_sentiment):
     if original_sentiment == 'negative':
         pos_score = pos_score + probabilities[:, 1]
     return pos_score.numpy()
+
 
 def get_roberta_score(data_df, out_dir):
 
@@ -112,9 +116,6 @@ def get_roberta_score(data_df, out_dir):
 
     out_path = f'{out_dir}/roberta_score_before_after_framing'
     plot_violin(plot_data, out_path)
-
-
-
 
 
 if __name__ == '__main__':
