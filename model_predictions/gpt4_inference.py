@@ -1,49 +1,80 @@
-import sys
 
-from openai import Client
+import os
 import pandas as pd
+from argparse import ArgumentParser
+from openai import OpenAI
+from tqdm import tqdm
+from model_predictions.utils import *
 
 
-def doSAGPT(baseSentence, firstSentnece, secondSentence, client):
-    prompt = "Here's a sentence:\n" \
-             "<sentence>.\n" \
-             "Is the sentence Positive Or Negative? Write the answer as Json: " \
-             "{'Sentiment' : 'Positive/Negative'}."
-    basePrompt = prompt.replace("<sentence>", baseSentence)
-    dic = [{"role": "user", "content": basePrompt}]
-    chat = client.chat.completions.create(model="gpt-4-0613", messages=dic)
-    baseReply = chat.choices[0].message.content.split("\n")
-
-    firstPrompt = prompt.replace("<sentence>", firstSentnece)
-    dic = [{"role": "user", "content": firstPrompt}]
-    chat = client.chat.completions.create(model="gpt-4-0613", messages=dic)
-    firstReply = chat.choices[0].message.content.split("\n")
-
-    secondPrompt = prompt.replace("<sentence>", secondSentence)
-    dic = [{"role": "user", "content": secondPrompt}]
-    chat = client.chat.completions.create(model="gpt-4-0613", messages=dic)
-    secondReply = chat.choices[0].message.content.split("\n")
-
-    return baseReply, firstReply, secondReply
+models_list_openai = [
+    "gpt-4o-2024-08-06",
+]
 
 
-def makeTest(data):
-    client = Client(api_key=sys.argv[1])
-    for index, row in data.iterrows():
-        if (index < 2024):
-            continue
-        print(index)
-        processed_sentence = doSAGPT(row['sentence_text'], row['positive_framing'], row['negative_framing'], client)
-        data.at[index, 'Base SA'] = processed_sentence[0][0]
-        data.at[index, 'After Positive Framing SA'] = processed_sentence[1][0]
-        data.at[index, 'After Negative Framing SA'] = processed_sentence[2][0]
+def run_infer_openai(data_df, model_name, out_path, allow_neutral):
+    client = OpenAI()
 
-        data.to_csv('combinedData_GPT_result.csv', index=False)
+    opposite_framing_pred = []
+    print(allow_neutral)
+
+    for i, row in tqdm(data_df.iterrows(), total=len(data_df)):
+        opposite_sentiment_framing = get_opposite_framing(row)
+        if allow_neutral:
+            current_prompt = [
+                {"role": "system", "content": SYSTEM_MSG_WITH_NEUTRAL},
+                {"role": "user", "content": USER_MSG_WITH_NEUTRAL.format(sentence=opposite_sentiment_framing)}
+            ]
+        else:
+            current_prompt = [
+                {"role": "system", "content": SYSTEM_MSG},
+                {"role": "user", "content": USER_MSG.format(sentence=opposite_sentiment_framing)}
+            ]
+        response = client.chat.completions.create(
+            model=model_name,
+            messages=current_prompt,
+        )
+        opposite_framing_pred.append(response.choices[0].message.content)
+
+    data_df['opposite_framing_raw_pred'] = opposite_framing_pred
+    data_df.to_csv(out_path, index=False)
+
+    return data_df
+
+
+def inference_openai(data_path, model_name, out_dir, allow_neutral):
+
+    data_df = pd.read_csv(data_path)
+
+    os.makedirs(out_dir, exist_ok=True)
+    model_name_for_fname = model_name.replace("/", "-")
+    out_path = os.path.join(out_dir, f'{model_name_for_fname}_opposite_framing_predictions.csv')
+    if allow_neutral:
+        out_path = out_path.replace(".csv", "_with_neutral.csv")
+    print(out_path)
+
+    if os.path.exists(out_path):
+        data_df = pd.read_csv(out_path)
+    else:
+        data_df = run_infer_openai(data_df, model_name, out_path, allow_neutral)
+
+    opposite_framing_pred = data_df['opposite_framing_raw_pred'].tolist()
+    processed_out = process_preds(opposite_framing_pred)
+
+    data_df['opposite_framing_processed_pred'] = processed_out
+    data_df.to_csv(out_path, index=False)
 
 
 if __name__ == '__main__':
-    data = pd.read_csv('combinedData_GPT_result.csv')
-    data['Base SA'] = data['Base SA'].astype(str)
-    data['After Positive Framing SA'] = data['After Positive Framing SA'].astype(str)
-    data['After Negative Framing SA'] = data['After Negative Framing SA'].astype(str)
-    makeTest(data)
+    parser = ArgumentParser()
+    parser.add_argument("--data_path", type=str, required=True,
+                        help="Path to csv with the data to prompt the model with")
+    parser.add_argument("--model_name", type=str, required=True,
+                        help="Name of the model to use for inference")
+    parser.add_argument("--allow_neutral", action='store_true', default=False,
+                        help="Name of the model to use for inference")
+    parser.add_argument("--out_dir", type=str, default='model_predictions/inference',)
+
+    args = parser.parse_args()
+    inference_openai(args.data_path, args.model_name, args.out_dir, args.allow_neutral)
+
