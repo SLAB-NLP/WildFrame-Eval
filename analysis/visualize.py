@@ -33,6 +33,7 @@ MAP_MODELS_TO_COLORS = {
         "mixtral-8x7b-v0.1": "#6495ED",  # Medium Blue
         "mixtral-8x22b-v0.1": "#0000FF",  # Dark Blue
         "deepseek-67b": "#CBA6FF",  # Medium Purple
+        "gpt-4o": "#CBA6FF",  # Medium Purple
         "qwen2.5-7b": "#FFD580",  # Light Orange
         "qwen2.5-14b": "#FFA500",  # Medium Orange
         "qwen2.5-72b": "#FF8C00",  # Dark Orange
@@ -219,12 +220,10 @@ def get_model_name_for_print(file_name):
     name = name.lower()
     if 'fp16' in name:
         name = name[:name.find('-fp16')]
-    name = name.replace('-instruct', '')
-    name = name.replace('-it', '')
-    name = name.replace('-mini', '')
-    name = name.replace('-chat', '')
-    name = name.replace('-llm', '')
-    name = name.replace('-hf', '')
+    if '2024' in name:
+        name = name[:name.find('-2024')]
+    for symbol in ['-instruct', '-it', '-mini', '-chat', '-llm', '-hf']:
+        name = name.replace(symbol, '')
     name = name.replace(':', '-')
     for company in company_names:
         if company in name:
