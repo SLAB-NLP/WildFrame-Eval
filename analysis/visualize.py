@@ -100,7 +100,7 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
 
 
     # bar chart for humans
-    colors = [MAP_MODELS_TO_COLORS[model] for model in only_model_correlation.index]
+    colors = ["#6495ED" for _ in only_model_correlation.index]
     fig, ax = plt.subplots(figsize=(6, 4))
     bars = ax.barh(only_humans_correlation.index, only_humans_correlation.values, color=colors)
     # Add text labels with the values
