@@ -102,6 +102,7 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
     # bar chart for humans
     colors = ["#6495ED" for _ in only_model_correlation.index]
     fig, ax = plt.subplots(figsize=(6, 4))
+    only_humans_correlation = only_humans_correlation.iloc[::-1]
     bars = ax.barh(only_humans_correlation.index, only_humans_correlation.values, color=colors)
     # Add text labels with the values
     for bar in bars:
@@ -180,8 +181,8 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
         flipped_percentage[j].reverse()
     flipped_percentage = np.array(flipped_percentage)
 
-    categories = [f"{i} Flipped" for i in range(6)]
-    col_names = ['Positive', 'Negative']
+    categories = [f"{i}" for i in range(6)]
+    col_names = ['Positive Base', 'Negative Base']
     categories.reverse()
     fig, ax = plt.subplots(figsize=(9, 6))
     bars = []
@@ -205,7 +206,8 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
     ax.set_xlabel('% Sentences', fontsize=14)
     plt.yticks(fontsize=14)
     plt.xticks(fontsize=14)
-    ax.legend(loc='upper right', bbox_to_anchor=(1, 1.10), ncol=len(categories), fontsize=11)
+    # set y label
+    ax.legend(loc='upper right', bbox_to_anchor=(0.9, 1.20), ncol=len(categories), fontsize=14, title="Num Sentiment Shifts", title_fontsize=14)
     plt.tight_layout()
 
     # Show the plot
@@ -247,7 +249,7 @@ def plot_model_distribution(all_model_results, model_names, key, dir_path):
         # assert total_kept_for_plot + total_to_neutral_for_plot + total_flipped_for_plot == 100
         all_models_total.append([total_flipped_for_plot, total_to_neutral_for_plot, total_kept_for_plot])
     all_models_total = np.array(all_models_total)
-    categories = ['Flipped Sentiment', 'Became Neutral', 'Kept Original Sentiment']
+    categories = ['Sentiment Shift', 'Became Neutral', 'Base Sentiment Remains']
     # Stacked bar plot
     fig, ax = plt.subplots(figsize=(9, 6))
     bars = []
