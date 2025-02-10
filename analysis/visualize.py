@@ -159,8 +159,10 @@ def run_analysis(models_dir, human_annotations_path, out_dir):
              'orig_negative_became_neutral': orig_negative_became_neutral,
              'orig_positive_kept': orig_positive_kept,
              'orig_negative_kept': orig_negative_kept, 'total_flipped': total_flipped,
-             'total_became_neutral': total_became_neutral, 'total_kept': total_kept})
+             'total_became_neutral': total_became_neutral, 'total_kept': total_kept,
+             'negative_flipped_minus_positive_flipped': len(orig_negative_flipped) - len(orig_positive_flipped),})
 
+    plot_differences(all_model_results, model_names, out_dir)
     plot_model_distribution(all_model_results, model_names, key='total', dir_path=out_dir)
     plot_model_distribution(all_model_results, model_names, key='orig_positive', dir_path=out_dir)
     plot_model_distribution(all_model_results, model_names, key='orig_negative', dir_path=out_dir)
@@ -277,6 +279,49 @@ def plot_model_distribution(all_model_results, model_names, key, dir_path):
     # Show the plot
     path = os.path.join(dir_path, f'{key}_models_distribution.png')
     plt.savefig(path)
+
+
+def plot_differences(all_model_results, model_names, dir_path):
+    # Bar width
+    bar_width = 0.3
+    x = np.arange(len(model_names))  # Group positions
+
+    # Plot
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    all_models_positive_shifts = [len(model['orig_positive_flipped'])/500*100 for model in all_model_results]
+    ax.bar(x, all_models_positive_shifts, width=bar_width, label="Positive base", color="lightgreen")
+    # add text on bars
+    for i, value in enumerate(all_models_positive_shifts):
+        ax.text(i, value, f'{value:.1f}%', ha='center', va='bottom', fontsize=12)
+
+    all_models_negative_shifts = [len(model['orig_negative_flipped'])/500*100 for model in all_model_results]
+    ax.bar(x + bar_width, all_models_negative_shifts, width=bar_width, label="Negative base", color="lightcoral")
+    for i, value in enumerate(all_models_negative_shifts):
+        ax.text(i + bar_width, value, f'{value:.1f}%', ha='center', va='bottom', fontsize=12)
+
+    plt.xticks(x + (bar_width/2), model_names, rotation=45)
+    plt.ylabel('Percentage of sentiment shifts', fontsize=14)
+    plt.ylim(0, 85)
+    plt.yticks(np.arange(0, 81, 10), fontsize=14)
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(os.path.join(dir_path, 'positive_negative_shifts.png'))
+
+    plt.figure(figsize=(8, 6))
+    all_models_diffs = []
+    for i, model in enumerate(model_names):
+        diff = all_model_results[i]['negative_flipped_minus_positive_flipped'] / 500 * 100
+        all_models_diffs.append(diff)
+    plt.barh(model_names, all_models_diffs, color='lightblue')
+    # Adding text on bars
+    for i, value in enumerate(all_models_diffs):
+        offset = -1.3 if value < 0 else 1.3
+        plt.text(value-offset, i, f'{value:.1f}', ha='center', va='center', fontsize=12)
+    plt.xlabel('Negative base shifts minus positive base shifts (in %)', fontsize=14)
+    plt.yticks(fontsize=14)
+    plt.tight_layout()
+    plt.savefig(os.path.join(dir_path, 'negative_minus_positive_shifts.png'))
 
 
 if __name__ == '__main__':
