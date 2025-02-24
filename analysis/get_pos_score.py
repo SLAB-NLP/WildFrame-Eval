@@ -43,11 +43,11 @@ def get_flair_score(data_df, out_dir):
 
         # Add data to plot_data
         plot_data.extend([
-            {'Sentiment': sentiment.capitalize(), 'Type': 'Before', 'Score': score}
+            {'Sentiment': sentiment.capitalize(), 'Type': 'Base', 'Score': score}
             for score in pos_score_orig
         ])
         plot_data.extend([
-            {'Sentiment': sentiment.capitalize(), 'Type': 'After', 'Score': score}
+            {'Sentiment': sentiment.capitalize(), 'Type': 'Reframed', 'Score': score}
             for score in pos_score_opposite_framing
         ])
 
@@ -68,11 +68,11 @@ def plot_violin(plot_data, out_path):
         split=True,  # For side-by-side comparison within each category
         palette='Set2'
     )
-    plt.yticks(fontsize=12)
-    plt.xticks(fontsize=14)
-    plt.xlabel('Base Sentence Sentiment', fontsize=14)
-    plt.ylabel('Positive Sentiment Score', fontsize=14)
-    plt.legend(title='Framing', loc='upper left', fontsize=12)
+    plt.yticks(np.arange(0, 1.1, 0.2), fontsize=16)
+    plt.xticks(fontsize=16)
+    plt.xlabel('Base statement sentiment', fontsize=20)
+    plt.ylabel('Positive sentiment score', fontsize=20)
+    plt.legend(loc='upper left', fontsize=18)
     plt.savefig(out_path+'.png')
 
 
@@ -106,11 +106,11 @@ def get_roberta_score(data_df, out_dir):
 
         # Add data to plot_data
         plot_data.extend([
-            {'Sentiment': sentiment.capitalize(), 'Type': 'Before', 'Score': score}
+            {'Sentiment': sentiment.capitalize(), 'Type': 'Base', 'Score': score}
             for score in pos_score_orig
         ])
         plot_data.extend([
-            {'Sentiment': sentiment.capitalize(), 'Type': 'After', 'Score': score}
+            {'Sentiment': sentiment.capitalize(), 'Type': 'Reframed', 'Score': score}
             for score in pos_score_opposite_framing
         ])
 

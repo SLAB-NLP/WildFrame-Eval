@@ -8,7 +8,7 @@ from model_predictions.utils import *
 models_list_together = [
     "google/gemma-2-9b-it",
     "google/gemma-2-27b-it",
-    "mistralai/Mistral-7B-Instruct-v0.3"
+    "mistralai/Mistral-7B-Instruct-v0.3",
     "mistralai/Mixtral-8x7B-Instruct-v0.1",
     "mistralai/Mixtral-8x22B-Instruct-v0.1",
     "deepseek-ai/deepseek-llm-67b-chat",
